@@ -87,8 +87,16 @@ public class Main {
         System.out.println("----------------------------------");
 
         // Teste #7 - Não conseguir reduzir a velocidade de um carro ligado, abaixo de 0
-        // Given (Dado)
-        // When (Quando)
-        // Then (Então)
+        System.out.println("Teste #7 - Não conseguir reduzir a velocidade de um carro ligado, abaixo de 0");
+        // Given (Dado): dado um carro ligado na velocidade 30
+        Carro carro7 = new Carro();
+        carro7.ligar();
+        carro7.acelerar(30);
+        // When (Quando): quando frear 40
+        carro7.frear(40);
+        // Then (Então): a velocidade deve tornar nula
+        System.out.println(carro7.getVelocidadeAtual() == 0);
+        System.out.println("----------------------------------");
+
     }
 }

@@ -28,7 +28,11 @@ public class Carro {
     }
 
     public void frear(Integer velocidade) {
-        this.velocidadeAtual -= velocidade;
+        if(velocidade <= this.velocidadeAtual) {
+            this.velocidadeAtual -= velocidade;
+        } else {
+            this.velocidadeAtual = 0;
+        }
     }
 
     public String getCor() {
