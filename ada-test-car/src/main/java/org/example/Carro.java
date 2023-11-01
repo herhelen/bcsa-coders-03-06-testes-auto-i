@@ -23,7 +23,8 @@ public class Carro {
     }
 
     public void acelerar(Integer velocidade) {
-        this.velocidadeAtual += velocidade;
+        if(this.ligado)
+            this.velocidadeAtual += velocidade;
     }
 
     public void frear(Integer velocidade) {

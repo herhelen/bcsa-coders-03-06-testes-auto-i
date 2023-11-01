@@ -66,14 +66,25 @@ public class Main {
         System.out.println("----------------------------------");
 
         // Teste #5 - Deve acelerar corretamente um carro ligado
+        System.out.println("Teste #5 - Deve acelerar corretamente um carro ligado");
         // Given (Dado): dado um carro
+        Carro carro5 = new Carro();
         // When (Quando): quando eu ligar e acelerar
-        // Then (Então): a velocidade deve ser
+        carro5.ligar();
+        carro5.acelerar(20);
+        // Then (Então): a velocidade deve ser igual velocidade passada na aceleração
+        System.out.println(carro5.getVelocidadeAtual() == 20); // valor esperado: 20
+        System.out.println("----------------------------------");
 
         // Teste #6 - Não deve acelerar um carro desligado
-        // Given (Dado)
-        // When (Quando)
-        // Then (Então)
+        System.out.println("Teste #6 - Não deve acelerar um carro desligado");
+        // Given (Dado): dado um carro desligado
+        Carro carro6 = new Carro();
+        // When (Quando): quando acelerar 20
+        carro6.acelerar(20);
+        // Then (Então): a velocidade deve permanecer 0
+        System.out.println(carro6.getVelocidadeAtual() == 0); // valor esperado: 0
+        System.out.println("----------------------------------");
 
         // Teste #7 - Não conseguir reduzir a velocidade de um carro ligado, abaixo de 0
         // Given (Dado)
