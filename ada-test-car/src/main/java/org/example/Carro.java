@@ -11,6 +11,7 @@ public class Carro {
 
     public Carro() {
         this.ligado = false;
+        this.velocidadeAtual = 0;
     }
 
     public void ligar() {

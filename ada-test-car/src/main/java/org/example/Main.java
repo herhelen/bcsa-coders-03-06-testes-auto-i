@@ -36,9 +36,13 @@ public class Main {
         System.out.println("----------------------------------");
 
         // Teste #2 - Deve iniciar (=instanciar) com velocidade Zero
-        // Given (Dado)
-        // When (Quando)
-        // Then (Então)
+        System.out.println("Teste #2 - Deve iniciar com velocidade Zero");
+        // Given (Dado): dado um carro
+        Carro carro2 = new Carro();
+        // When (Quando): nada
+        // Then (Então): a velocidade do carro deve ser nula
+        System.out.println(carro2.getVelocidadeAtual() == 0); // valor esperado: 0
+        System.out.println("----------------------------------");
 
         // Teste #3 - Deve ligar corretamente
         System.out.println("Teste #3 - Deve ligar corretamente");
