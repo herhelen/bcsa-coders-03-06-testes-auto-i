@@ -1,2 +1,3 @@
-# bcsa-coders-03-06-testes-auto-i
-Módulo 6 Testes Automatizados I
+# SC2023 - Ada
+## Módulo 6 - Testes Automatizados I
+Códigos das aulas e das atividades / exercícios
