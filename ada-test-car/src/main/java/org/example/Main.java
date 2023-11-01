@@ -55,9 +55,15 @@ public class Main {
         System.out.println("----------------------------------");
 
         // Teste #4 - Deve desligar corretamente um carro ligado
+        System.out.println("Teste #4 - Deve desligar corretamente um carro ligado");
         // Given (Dado): dado um carro ligado
+        Carro carro4 = new Carro();
+        carro4.ligar();
         // When (Quando): quando eu desligar
+        carro4.desligar();
         // Then (Então): carro deve estar desligado
+        System.out.println(!carro4.getLigado()); // valor esperado: false
+        System.out.println("----------------------------------");
 
         // Teste #5 - Deve acelerar corretamente um carro ligado
         // Given (Dado): dado um carro
