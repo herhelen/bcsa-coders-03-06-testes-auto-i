@@ -12,6 +12,13 @@ public class Carro {
     public Carro() {
         this.ligado = false;
         this.velocidadeAtual = 0;
+        this.velocidadeMaxima = 200;
+    }
+
+    public Carro(Integer velocidadeMaxima) {
+        this.velocidadeAtual = 0;
+        this.ligado = false;
+        this.velocidadeMaxima = velocidadeMaxima;
     }
 
     public void ligar() {
@@ -23,8 +30,13 @@ public class Carro {
     }
 
     public void acelerar(Integer velocidade) {
-        if(this.ligado)
-            this.velocidadeAtual += velocidade;
+        if(this.ligado) {
+            if(this.velocidadeMaxima <= velocidade + velocidadeAtual) {
+                this.velocidadeAtual = this.velocidadeMaxima;
+            } else {
+                this.velocidadeAtual = velocidade + velocidadeAtual;
+            }
+        }
     }
 
     public void frear(Integer velocidade) {
