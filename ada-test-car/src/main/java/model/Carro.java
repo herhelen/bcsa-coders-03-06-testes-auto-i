@@ -1,4 +1,6 @@
-package org.example;
+package model;
+
+import java.util.Objects;
 
 public class Carro {
 
@@ -19,6 +21,12 @@ public class Carro {
         this.velocidadeAtual = 0;
         this.ligado = false;
         this.velocidadeMaxima = velocidadeMaxima;
+    }
+
+    public Carro(String cor, String marca, String modelo) {
+        this.cor = cor;
+        this.marca = marca;
+        this.modelo = modelo;
     }
 
     public void ligar() {
@@ -94,4 +102,13 @@ public class Carro {
     public void setVelocidadeMaxima(Integer velocidadeMaxima) {
         this.velocidadeMaxima = velocidadeMaxima;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Carro carro = (Carro) o;
+        return Objects.equals(marca, carro.marca) && Objects.equals(modelo, carro.modelo);
+    }
+
 }

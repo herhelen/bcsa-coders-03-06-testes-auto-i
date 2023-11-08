@@ -1,10 +1,30 @@
 package model;
 
-import org.example.Carro;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.*;
 
 public class CarroTest {
+
+
+    @Before
+    public void before() {
+        System.out.println("roda antes de cada teste");
+    }
+
+    @After
+    public void after() {
+        System.out.println("roda após de cada teste");
+    }
+
+    @BeforeClass
+    public static void beforeClass() {
+        System.out.println("before class");
+    }
+
+    @AfterClass
+    public static void afterClass() {
+        System.out.println("after class");
+    }
+
 
     @Test
     public void deveIniciarDelsigado() {
