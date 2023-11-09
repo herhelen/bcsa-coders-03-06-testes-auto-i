@@ -2,6 +2,8 @@ package ada.model;
 
 import ada.enums.Size;
 import ada.enums.Status;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.equalTo;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -12,6 +14,7 @@ public class PizzaTest {
         Pizza pizza = new Pizza("4 queijos");
 
         Assert.assertEquals(30, pizza.escolheTamanho(Size.GRANDE), 0.1);
+        Assert.assertThat(pizza.getTamanho(), is(equalTo(Size.GRANDE)));
     }
 
     @Test
