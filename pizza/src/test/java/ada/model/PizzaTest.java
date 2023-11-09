@@ -20,20 +20,40 @@ public class PizzaTest {
     @Test
     public void testaAssaPizza() {
         Pizza pizza = new Pizza("portuguesa");
-
+        pizza.escolheTamanho(Size.PEQUENO);
         Assert.assertEquals(Status.FAZENDO, pizza.assaPizza());
     }
 
     @Test
-    public void testPagaPizza() {
+    public void testaPagaPizza() {
         Pizza pizza = new Pizza("portuguesa");
+        pizza.escolheTamanho(Size.PEQUENO);
         pizza.assaPizza();
 
         Assert.assertEquals(Status.PRONTO, pizza.pagaPizza());
         Assert.assertTrue(pizza.getPago());
     }
 
+    @Test
+    public void testaEntregaPizza() {
+        Pizza pizza = new Pizza("portuguesa");
+        pizza.escolheTamanho(Size.PEQUENO);
+        pizza.assaPizza();
+        pizza.pagaPizza();
 
+        Assert.assertEquals(Status.ENTREGUE, pizza.entregaPizza());
+    }
 
+    @Test
+    public void testaExcecaoTentarEntregarPizzaNaoPago() {
+        Pizza pizza = new Pizza("portuguesa");
+        pizza.escolheTamanho(Size.PEQUENO);
+        pizza.assaPizza();
+
+        Throwable throwable =
+                Assert.assertThrows(RuntimeException.class, () -> pizza.entregaPizza());
+
+        Assert.assertEquals("A pizza ainda não foi paga!", throwable.getMessage());
+    }
 
 }

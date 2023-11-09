@@ -2,9 +2,10 @@ package ada.enums;
 
 public enum Status {
 
-    SOLICITADO("solicitado"),
+    PEDIDO("pedido"),
     FAZENDO("fazendo"),
-    PRONTO("pronto");
+    PRONTO("pronto"),
+    ENTREGUE("entregue");
 
     private final String estado;
 

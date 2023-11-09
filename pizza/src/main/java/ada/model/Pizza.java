@@ -14,24 +14,37 @@ public class Pizza {
     public Pizza(String nome) {
         this.nome = nome;
         this.preco = 10.0;
-        this.status = Status.SOLICITADO;
         this.pago = false;
     }
 
     public Double escolheTamanho(Size tamanho) {
+        this.status = Status.PEDIDO;
         this.tamanho = tamanho;
         this.preco = this.preco * this.tamanho.getMultiplicador();
         return this.preco;
     }
 
     public Status assaPizza() {
-        this.status = Status.FAZENDO;
+        if(this.status == Status.PEDIDO) {
+            this.status = Status.FAZENDO;
+        }
         return this.status;
     }
 
     public Status pagaPizza() {
-        this.pago = true;
-        this.status = Status.PRONTO;
+        if(this.status == Status.FAZENDO) {
+            this.pago = true;
+            this.status = Status.PRONTO;
+        }
+        return this.status;
+    }
+
+    public Status entregaPizza() {
+        if(!this.pago) {
+            throw new RuntimeException("A pizza ainda não foi paga!");
+        }
+
+        this.status = Status.ENTREGUE;
         return this.status;
     }
 
