@@ -2,14 +2,14 @@ package ada.enums;
 
 public enum Size {
 
-    PEQUENO("Pequeno", 1),
-    MEDIO("Médio", 2),
-    GRANDE("Grande", 3);
+    PEQUENO("Pequeno", 1.5),
+    MEDIO("Médio", 2.0),
+    GRANDE("Grande", 3.05);
 
     private final String tamanho;
-    private final Integer multiplicador;
+    private final Double multiplicador;
 
-    Size(String tamanho, Integer multiplicador) {
+    Size(String tamanho, Double multiplicador) {
         this.tamanho = tamanho;
         this.multiplicador = multiplicador;
     }
@@ -18,7 +18,7 @@ public enum Size {
         return tamanho;
     }
 
-    public Integer getMultiplicador() {
+    public Double getMultiplicador() {
         return multiplicador;
     }
 }

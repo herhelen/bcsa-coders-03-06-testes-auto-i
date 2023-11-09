@@ -13,7 +13,7 @@ public class PizzaTest {
     public void testaEscolheTamanho() {
         Pizza pizza = new Pizza("4 queijos");
 
-        Assert.assertEquals(30, pizza.escolheTamanho(Size.GRANDE), 0.1);
+        Assert.assertEquals(30.5, pizza.escolheTamanho(Size.GRANDE), 0.1);
         Assert.assertThat(pizza.getTamanho(), is(equalTo(Size.GRANDE)));
     }
 
