@@ -10,6 +10,17 @@ import org.junit.Test;
 public class PizzaTest {
 
     @Test
+    public void testaCriaPizza() {
+        Pizza pizza = new Pizza("4 queijos");
+
+        Assert.assertEquals("4 queijos", pizza.getNome());
+        Assert.assertEquals(10.0, pizza.getPreco(), 0.1);
+        Assert.assertFalse(pizza.getPago());
+        Assert.assertNull(pizza.getStatus());
+        Assert.assertNull(pizza.getTamanho());
+    }
+
+    @Test
     public void testaEscolheTamanho() {
         Pizza pizza = new Pizza("4 queijos");
 
