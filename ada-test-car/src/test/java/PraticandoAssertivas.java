@@ -1,4 +1,6 @@
 import model.Carro;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.equalTo;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -104,6 +106,16 @@ public class PraticandoAssertivas {
         Carro carroB = new Carro();
 
         Assert.assertNotSame(carroA, carroB);
+    }
+
+    @Test
+    public void praticandoAssertThat() {
+        int actual = 1;
+        int expected = 1;
+
+
+        // more human readable than assertEquals
+        Assert.assertThat(actual, is(equalTo(expected)));
     }
 
 }
