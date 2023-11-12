@@ -1,6 +1,5 @@
 package model;
 
-import java.util.Objects;
 
 public class Carro {
 
@@ -11,104 +10,65 @@ public class Carro {
     private Integer velocidadeAtual;
     private Integer velocidadeMaxima;
 
-    public Carro() {
-        this.ligado = false;
-        this.velocidadeAtual = 0;
-        this.velocidadeMaxima = 200;
-    }
-
-    public Carro(Integer velocidadeMaxima) {
-        this.velocidadeAtual = 0;
-        this.ligado = false;
-        this.velocidadeMaxima = velocidadeMaxima;
-    }
-
-    public Carro(String cor, String marca, String modelo) {
+    public Carro(String marca, String modelo, String cor, Integer velocidadeMaxima) {
         this.cor = cor;
         this.marca = marca;
         this.modelo = modelo;
+        this.velocidadeMaxima = velocidadeMaxima;
+
+        this.ligado = false;
+        this.velocidadeAtual = 0;
     }
 
     public void ligar() {
-        this.ligado = true;
+
     }
 
     public void desligar() {
-        this.ligado = false;
+
     }
 
-    public void acelerar(Integer velocidade) {
-        if(this.ligado) {
-            if(this.velocidadeMaxima <= velocidade + velocidadeAtual) {
-                this.velocidadeAtual = this.velocidadeMaxima;
-            } else {
-                this.velocidadeAtual = velocidade + velocidadeAtual;
-            }
-        }
+    public void acelerar() {
+
     }
 
-    public void frear(Integer velocidade) {
-        if(velocidade <= this.velocidadeAtual) {
-            this.velocidadeAtual -= velocidade;
-        } else {
-            this.velocidadeAtual = 0;
-        }
+    public void frear() {
+
     }
 
     public String getCor() {
-        return cor;
-    }
-
-    public void setCor(String cor) {
-        this.cor = cor;
+        return this.cor;
     }
 
     public String getMarca() {
-        return marca;
-    }
-
-    public void setMarca(String marca) {
-        this.marca = marca;
+        return this.marca;
     }
 
     public String getModelo() {
-        return modelo;
-    }
-
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
+        return this.modelo;
     }
 
     public Boolean getLigado() {
-        return ligado;
-    }
-
-    public void setLigado(Boolean ligado) {
-        this.ligado = ligado;
+        return this.ligado;
     }
 
     public Integer getVelocidadeAtual() {
-        return velocidadeAtual;
-    }
-
-    public void setVelocidadeAtual(Integer velocidadeAtual) {
-        this.velocidadeAtual = velocidadeAtual;
+        return this.velocidadeAtual;
     }
 
     public Integer getVelocidadeMaxima() {
-        return velocidadeMaxima;
-    }
-
-    public void setVelocidadeMaxima(Integer velocidadeMaxima) {
-        this.velocidadeMaxima = velocidadeMaxima;
+        return this.velocidadeMaxima;
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Carro carro = (Carro) o;
-        return Objects.equals(marca, carro.marca) && Objects.equals(modelo, carro.modelo);
+    public String toString() {
+        return "Carro{" +
+                "cor='" + this.cor + '\'' +
+                ", marca='" + this.marca + '\'' +
+                ", modelo='" + this.modelo + '\'' +
+                ", ligado=" + this.ligado +
+                ", velocidadeAtual=" + this.velocidadeAtual +
+                ", velocidadeMaxima=" + this.velocidadeMaxima +
+                '}';
     }
-
 }

@@ -20,10 +20,5 @@ public class Main {
     */
     public static void main(String[] args) {
 
-        // Gherkin
-        // Given (Dado)
-        // When (Quando)
-        // Then (Então)
-
     }
 }
