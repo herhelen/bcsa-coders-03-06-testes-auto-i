@@ -35,7 +35,13 @@ public class Carro {
 
         if(this.ligado) {
             if(acrescimoVeocidade > 0) {
-                this.velocidadeAtual += acrescimoVeocidade;
+                if(this.velocidadeAtual + acrescimoVeocidade <= this.velocidadeMaxima) {
+                    this.velocidadeAtual += acrescimoVeocidade;
+                } else {
+                    this.velocidadeAtual = this.velocidadeMaxima;
+
+                    System.out.println("WARN: O carro já atigiu a sua velocidade máxima.");
+                }
             } else {
                 System.out.println("WARN: Deve apenas acelerar com acréscimo de velocidade maior que zero (valor positivo)");
             }

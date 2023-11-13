@@ -63,4 +63,14 @@ public class CarroTest {
 
         assertEquals(10, this.carro.getVelocidadeAtual());
     }
+
+    @Test
+    public void naoDeveUltrapassarVelociadeMaximaAoAcelerarUmCarroLigado() {
+        this.carro.ligar();
+
+        this.carro.acelerar(this.VELOCIDADE_MAXIMA);
+        this.carro.acelerar(5000);
+
+        assertEquals(this.VELOCIDADE_MAXIMA, this.carro.getVelocidadeAtual());
+    }
 }
