@@ -46,4 +46,11 @@ public class CarroTest {
 
         assertEquals(103, this.carro.getVelocidadeAtual());
     }
+
+    @Test
+    public void naoDeveAcelerarUmCarroDesligado() {
+        this.carro.acelerar(103);
+
+        assertEquals(0, this.carro.getVelocidadeAtual());
+    }
 }
