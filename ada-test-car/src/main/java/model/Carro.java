@@ -48,8 +48,12 @@ public class Carro {
         }
     }
 
-    public void frear() {
-
+    public void frear(Integer decrescimoVeocidade) {
+        // Só podemos realizar as ações como acelerar e frear com o carro ligado
+        // Não existe velocidade negativa => tratar entrada
+        if(this.ligado) {
+            this.velocidadeAtual -= decrescimoVeocidade;
+        }
     }
 
     public String getCor() {

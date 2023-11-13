@@ -73,4 +73,22 @@ public class CarroTest {
 
         assertEquals(this.VELOCIDADE_MAXIMA, this.carro.getVelocidadeAtual());
     }
+
+    @Test
+    public void deveFrearUmCarroLigadoCorretamente() {
+        this.carro.ligar();
+
+        this.carro.acelerar(103);
+
+        this.carro.frear(100);
+
+        assertEquals(3, this.carro.getVelocidadeAtual());
+    }
+
+    @Test
+    public void naoDeveFrearUmCarroDesligado() {
+        this.carro.frear(103);
+
+        assertEquals(0, this.carro.getVelocidadeAtual());
+    }
 }
