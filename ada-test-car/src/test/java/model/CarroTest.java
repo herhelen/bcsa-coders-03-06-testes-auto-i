@@ -53,4 +53,14 @@ public class CarroTest {
 
         assertEquals(0, this.carro.getVelocidadeAtual());
     }
+
+    @Test
+    public void naoDeveAcelearUmCarroLigadoNegativamente() {
+        this.carro.ligar();
+
+        this.carro.acelerar(10);
+        this.carro.acelerar( -5);
+
+        assertEquals(10, this.carro.getVelocidadeAtual());
+    }
 }

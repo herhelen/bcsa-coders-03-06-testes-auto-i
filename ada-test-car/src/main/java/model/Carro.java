@@ -30,10 +30,15 @@ public class Carro {
 
     public void acelerar(Integer acrescimoVeocidade) {
         // Só podemos realizar as ações como acelerar e frear com o carro ligado
-        // Não existe velocidade negativa
-        // tratar entrada
+        // Não existe velocidade negativa => tratar entrada
+        // O carro não pode passar de sua velocidade máxima
+
         if(this.ligado) {
-            this.velocidadeAtual += acrescimoVeocidade;
+            if(acrescimoVeocidade > 0) {
+                this.velocidadeAtual += acrescimoVeocidade;
+            } else {
+                System.out.println("WARN: Deve apenas acelerar com acréscimo de velocidade maior que zero (valor positivo)");
+            }
         }
     }
 
