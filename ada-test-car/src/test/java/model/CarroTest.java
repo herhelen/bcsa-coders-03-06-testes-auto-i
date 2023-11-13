@@ -8,7 +8,6 @@ public class CarroTest {
 
     @Test
     public void deveCriarUmCarroComOsAtributosCorretamenteInicializados() {
-
         Carro carro = new Carro("toyota", "corolla", "prata", 250);
 
         assertAll(
@@ -19,7 +18,15 @@ public class CarroTest {
                 () -> assertFalse(carro.getLigado()),
                 () -> assertEquals(0, carro.getVelocidadeAtual())
         );
+    }
 
+    @Test
+    public void deveLigarUmCarroCorretamente() {
+        Carro carro = new Carro("toyota", "corolla", "prata", 250);
+
+        carro.ligar();
+
+        assertTrue(carro.getLigado());
     }
 
 

@@ -21,7 +21,7 @@ public class Carro {
     }
 
     public void ligar() {
-
+        this.ligado = true;
     }
 
     public void desligar() {
