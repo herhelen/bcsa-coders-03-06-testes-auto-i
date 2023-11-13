@@ -2,32 +2,40 @@ package model;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class CarroTest {
 
+    private Carro carro;
+    private final String MARCA = "toyota";
+    private final String MODELO = "corolla";
+    private final String COR = "prata";
+    private final Integer VELOCIDADE_MAXIMA = 250;
+
+    @BeforeEach
+    public void instanciarCarro() {
+        this.carro = new Carro(this.MARCA, this.MODELO, this.COR, this.VELOCIDADE_MAXIMA);
+    }
+
     @Test
     public void deveCriarUmCarroComOsAtributosCorretamenteInicializados() {
-        Carro carro = new Carro("toyota", "corolla", "prata", 250);
 
         assertAll(
-                () -> assertEquals("toyota", carro.getMarca()),
-                () -> assertEquals("corolla", carro.getModelo()),
-                () -> assertEquals("prata", carro.getCor()),
-                () -> assertEquals(250, carro.getVelocidadeMaxima()),
-                () -> assertFalse(carro.getLigado()),
-                () -> assertEquals(0, carro.getVelocidadeAtual())
+                () -> assertEquals(this.MARCA, this.carro.getMarca()),
+                () -> assertEquals(this.MODELO, this.carro.getModelo()),
+                () -> assertEquals(this.COR, this.carro.getCor()),
+                () -> assertEquals(this.VELOCIDADE_MAXIMA, this.carro.getVelocidadeMaxima()),
+                () -> assertFalse(this.carro.getLigado()),
+                () -> assertEquals(0, this.carro.getVelocidadeAtual())
         );
     }
 
     @Test
     public void deveLigarUmCarroCorretamente() {
-        Carro carro = new Carro("toyota", "corolla", "prata", 250);
+        this.carro.ligar();
 
-        carro.ligar();
-
-        assertTrue(carro.getLigado());
+        assertTrue(this.carro.getLigado());
     }
-
 
 }
