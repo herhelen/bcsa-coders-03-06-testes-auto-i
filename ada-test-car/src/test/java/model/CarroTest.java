@@ -38,4 +38,12 @@ public class CarroTest {
         assertTrue(this.carro.getLigado());
     }
 
+    @Test
+    public void deveAcelerarUmCarroLigadoCorretamente() {
+        this.carro.ligar();
+
+        this.carro.acelerar(103);
+
+        assertEquals(103, this.carro.getVelocidadeAtual());
+    }
 }

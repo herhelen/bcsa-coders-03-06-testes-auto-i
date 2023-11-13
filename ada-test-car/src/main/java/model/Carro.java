@@ -28,8 +28,13 @@ public class Carro {
 
     }
 
-    public void acelerar() {
-
+    public void acelerar(Integer acrescimoVeocidade) {
+        // Só podemos realizar as ações como acelerar e frear com o carro ligado
+        // Não existe velocidade negativa
+        // tratar entrada
+        if(this.ligado) {
+            this.velocidadeAtual += acrescimoVeocidade;
+        }
     }
 
     public void frear() {
