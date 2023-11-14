@@ -1,6 +1,7 @@
 package com.ada.banco.domain.model;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 public class Conta {
 
@@ -69,4 +70,19 @@ public class Conta {
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Conta conta = (Conta) o;
+
+        return
+            this.id.equals(conta.getId()) &&
+            this.agencia.equals(conta.getAgencia()) &&
+            this.digito.equals(conta.getDigito()) &&
+            this.saldo.equals(conta.getSaldo()) &&
+            this.titular.equals(conta.getTitular()) &&
+            this.cpf.equals(conta.getCpf());
+    }
+
 }
