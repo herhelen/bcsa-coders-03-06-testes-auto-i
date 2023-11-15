@@ -25,7 +25,8 @@ public class Carro {
     }
 
     public void desligar() {
-
+        // Só podemos desligar o carro quando ele parar totalmente (velocidadeAtual = 0)
+        this.ligado = false;
     }
 
     public void acelerar(Integer acrescimoVeocidade) {

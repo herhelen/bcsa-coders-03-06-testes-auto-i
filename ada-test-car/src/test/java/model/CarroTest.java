@@ -39,6 +39,15 @@ public class CarroTest {
     }
 
     @Test
+    public void deveDesligarUmCarroLigadoCorretamente() {
+        this.carro.ligar();
+
+        this.carro.desligar();
+
+        assertFalse(this.carro.getLigado());
+    }
+
+    @Test
     public void deveAcelerarUmCarroLigadoCorretamente() {
         this.carro.ligar();
 
