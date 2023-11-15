@@ -91,4 +91,20 @@ public class CarroTest {
 
         assertEquals(0, this.carro.getVelocidadeAtual());
     }
+
+    @Test
+    public void deveMostrarEstadoAtualDeUmCarroCorretamente() {
+        this.carro.ligar();
+
+        assertEquals("Carro{" +
+                "cor='" + this.COR + '\'' +
+                ", marca='" + this.MARCA + '\'' +
+                ", modelo='" + this.MODELO + '\'' +
+                ", ligado=true" +
+                ", velocidadeAtual=0" +
+                ", velocidadeMaxima=" + this.VELOCIDADE_MAXIMA +
+                '}',
+                this.carro.toString());
+
+    }
 }
