@@ -93,6 +93,17 @@ public class CarroTest {
     }
 
     @Test
+    public void naoDeveFrearUmCarroLigadoNegativamente() {
+        this.carro.ligar();
+
+        this.carro.acelerar(10);
+
+        this.carro.frear( -5);
+
+        assertEquals(10, this.carro.getVelocidadeAtual());
+    }
+
+    @Test
     public void deveMostrarEstadoAtualDeUmCarroCorretamente() {
         this.carro.ligar();
 

@@ -52,7 +52,11 @@ public class Carro {
         // Só podemos realizar as ações como acelerar e frear com o carro ligado
         // Não existe velocidade negativa => tratar entrada
         if(this.ligado) {
-            this.velocidadeAtual -= decrescimoVeocidade;
+            if(decrescimoVeocidade > 0) {
+                this.velocidadeAtual -= decrescimoVeocidade;
+            } else {
+                System.out.println("WARN: Deve apenas frear com decréscimo de velocidade maior que zero (valor positivo)");
+            }
         }
     }
 
