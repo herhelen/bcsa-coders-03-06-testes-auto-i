@@ -26,7 +26,11 @@ public class Carro {
 
     public void desligar() {
         // Só podemos desligar o carro quando ele parar totalmente (velocidadeAtual = 0)
-        this.ligado = false;
+        if(this.velocidadeAtual == 0) {
+            this.ligado = false;
+        } else {
+            System.out.println("WARN: Deve apenas desligar um carro totalmente parado (velocidade atual é nula)");
+        }
     }
 
     public void acelerar(Integer acrescimoVeocidade) {
