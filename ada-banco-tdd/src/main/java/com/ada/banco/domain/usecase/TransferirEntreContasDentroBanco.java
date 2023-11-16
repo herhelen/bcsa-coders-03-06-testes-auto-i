@@ -8,6 +8,10 @@ public class TransferirEntreContasDentroBanco {
 
     public Conta execute(Conta origem, Conta destino, BigDecimal valorASerTransferido) {
 
+        origem.setSaldo(origem.getSaldo().subtract(valorASerTransferido));
+        destino.setSaldo(destino.getSaldo().add(valorASerTransferido));
+
+
         return origem;
     }
 }
