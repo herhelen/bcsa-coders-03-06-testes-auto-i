@@ -15,6 +15,10 @@ public class TransferirEntreContasDentroBanco {
 
     public Conta execute(Conta origem, Conta destino, BigDecimal valorASerTransferido) throws Exception {
 
+        if(valorASerTransferido.compareTo(BigDecimal.ZERO) < 1) { // -1: <, 0: =, 1: >
+            throw new Exception("O valor a ser transferido deve ser maior que zero.");
+        }
+
         if((this.contaGateway.buscarPorCpf(origem.getCpf()) != null) &&
            (this.contaGateway.buscarPorCpf(destino.getCpf()) != null)) {
 
