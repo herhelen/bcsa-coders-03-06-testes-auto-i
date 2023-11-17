@@ -1,16 +1,28 @@
 package com.ada.banco.domain.usecase;
 
+import com.ada.banco.domain.gateway.ContaGateway;
 import com.ada.banco.domain.model.Conta;
 
 import java.math.BigDecimal;
 
 public class TransferirEntreContasDentroBanco {
 
-    public Conta execute(Conta origem, Conta destino, BigDecimal valorASerTransferido) {
+    private ContaGateway contaGateway;
 
-        origem.setSaldo(origem.getSaldo().subtract(valorASerTransferido));
-        destino.setSaldo(destino.getSaldo().add(valorASerTransferido));
+    public TransferirEntreContasDentroBanco(ContaGateway contaGateway) {
+        this.contaGateway = contaGateway;
+    }
 
+    public Conta execute(Conta origem, Conta destino, BigDecimal valorASerTransferido) throws Exception {
+
+        if((this.contaGateway.buscarPorCpf(origem.getCpf()) != null) &&
+           (this.contaGateway.buscarPorCpf(destino.getCpf()) != null)) {
+
+            origem.setSaldo(origem.getSaldo().subtract(valorASerTransferido));
+            destino.setSaldo(destino.getSaldo().add(valorASerTransferido));
+        } else {
+            throw new Exception("A conta remetente e/ou a conta destino não existe.");
+        }
 
         return origem;
     }
