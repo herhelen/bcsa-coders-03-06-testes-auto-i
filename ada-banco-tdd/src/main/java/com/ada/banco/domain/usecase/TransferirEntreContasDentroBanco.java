@@ -26,7 +26,7 @@ public class TransferirEntreContasDentroBanco {
                 origem.setSaldo(origem.getSaldo().subtract(valorASerTransferido));
                 destino.setSaldo(destino.getSaldo().add(valorASerTransferido));
             } else {
-                System.out.println("WARN: A conta origem não tem saldo suficiente para realizar a transferência");
+                System.out.println("WARN: A conta remetente não tem saldo suficiente para realizar a transferência");
             }
 
         } else {
@@ -39,5 +39,4 @@ public class TransferirEntreContasDentroBanco {
     private Boolean temSaldoParaTransferencia(Conta conta, BigDecimal valor) {
         return conta.getSaldo().compareTo(valor) >= 0;
     }
-
 }
