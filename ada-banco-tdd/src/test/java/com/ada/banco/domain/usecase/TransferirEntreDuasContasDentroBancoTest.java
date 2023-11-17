@@ -28,14 +28,20 @@ public class TransferirEntreDuasContasDentroBancoTest {
         assertEquals("A conta remetente e/ou a conta destino não existe.", throwable.getMessage());
     }
 
-
     @Test
     public void deveTransferirEntreDuasContasComSucesso() throws Exception {
-        Conta origem = new Conta(1111L, 2222L, 1L, BigDecimal.valueOf(1000.0), "Origem", "11122233344");
-        Conta destino = new Conta(4444L, 5555L, 4L, BigDecimal.ZERO, "Destino", "55566677788");
+        // given
+        Conta origem = new Conta(1111L, 2222L, 1L, BigDecimal.valueOf(1000.0),
+                "Origem", "11122233344");
+        Conta destino = new Conta(4444L, 5555L, 4L, BigDecimal.ZERO,
+                "Destino", "55566677788");
         ContaGateway contaGateway = new ContaGatewayDummyImpl();
-        TransferirEntreContasDentroBanco transferirEntreContasDentroBanco = new TransferirEntreContasDentroBanco(contaGateway);
-        Conta origemPosTransferencia = transferirEntreContasDentroBanco.execute(origem, destino, BigDecimal.valueOf(350.99));
+        TransferirEntreContasDentroBanco transferirEntreContasDentroBanco =
+                new TransferirEntreContasDentroBanco(contaGateway);
+
+        // when & then
+        Conta origemPosTransferencia =
+                transferirEntreContasDentroBanco.execute(origem, destino, BigDecimal.valueOf(350.99));
 
         assertAll(
                 () -> assertEquals(BigDecimal.valueOf(649.01), origemPosTransferencia.getSaldo()),
