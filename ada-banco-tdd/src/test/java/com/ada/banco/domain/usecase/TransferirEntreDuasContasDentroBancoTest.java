@@ -65,7 +65,28 @@ public class TransferirEntreDuasContasDentroBancoTest {
         Throwable throwable = assertThrows(Exception.class,
                 () -> transferirEntreContasDentroBanco.execute(origem, destino, BigDecimal.valueOf(-50.0)));
         assertEquals("O valor a ser transferido deve ser maior que zero.", throwable.getMessage());
+    }
 
+    @Test
+    public void naoDeveFazerTransferenciaSemSaldoSuficiente() throws Exception {
+        // given
+        Conta origem = new Conta(1111L, 2222L, 1L, BigDecimal.valueOf(1000.0),
+                "Origem", "11122233344");
+        Conta destino = new Conta(4444L, 5555L, 4L, BigDecimal.ZERO,
+                "Destino", "55566677788");
+        ContaGateway contaGateway = new ContaGatewayDummyImpl();
+        TransferirEntreContasDentroBanco transferirEntreContasDentroBanco =
+                new TransferirEntreContasDentroBanco(contaGateway);
+
+        // when & then
+        Conta origemPosTransferencia =
+                transferirEntreContasDentroBanco.execute(origem, destino, BigDecimal.valueOf(2000.0));
+
+        assertAll(
+                () -> assertEquals(BigDecimal.valueOf(1000.0), origemPosTransferencia.getSaldo()),
+                () -> assertEquals(BigDecimal.ZERO, destino.getSaldo()),
+                () -> assertSame(origem, origemPosTransferencia)
+        );
     }
 
 }
